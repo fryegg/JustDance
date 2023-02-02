@@ -1,0 +1,29 @@
+{
+  "name": "movenet",
+  "version": "0.0.1",
+  "description": "MoveNet: Body Segmentation for TFJS and NodeJS",
+  "main": "movenet-js.js",
+  "scripts": {
+    "start": "node movenet.js inputs/model1.jpg",
+    "lint": "eslint *.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "Vladimir Mandic <mandic00@live.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^3.20.0",
+    "@vladmandic/pilogger": "^0.4.7",
+    "canvas": "^2.10.1",
+    "http-server": "^14.1.1",
+    "path": "^0.12.7",
+    "process": "^0.11.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0"
+  }
+}

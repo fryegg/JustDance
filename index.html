@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello World - TensorFlow.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Import the webpage's stylesheet -->
+</head>
+
+<body>
+    <div class="dropBox">
+        <h1>이곳에 파일을 드롭해주세요. </h1>
+    </div>
+
+    <h1>TensorFlow.js Hello World</h1>
+    <p id="status">wting TF.js load</p>
+    <input id="file" type="file" accept="video/mp4,video/mkv, video/x-m4v,video/*">
+    <video id="video" controls></video>
+    <span><video autoplay="true" id="webcam"></video>
+        <canvas class="canvas" id="mirrored"></canvas>
+        <canvas class="canvas" id="dancedata"></canvas>
+        <canvas class="canvas" id="dancereal"></canvas></span>
+    <button id="myBtn">재생</button><br>
+    <label for="lname">재생속도</label><br>
+    <input type="text" id="speed" value="1">
+    <button id="submit">설정</button>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+    <script src="test.js"></script>
+</body>
+
+</html>
