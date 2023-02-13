@@ -40,6 +40,8 @@ function addVideo() {
         const videourl = URL.createObjectURL(file);
         video.setAttribute("src", videourl);
         document.getElementById("video").style.display = "none";
+        const loading = document.getElementById("loading");
+        loading.style.display = "inline-block";
         video.addEventListener('loadeddata', function () {
             video.play().then(draw);
         });
@@ -331,8 +333,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 })
 const video = document.getElementById("video");
+const loading = document.getElementById("loading");
 video.addEventListener('ended', (event) => {
     flag = false;
+    loading.style.display = "none";
     document.getElementById("myBtn").addEventListener("click", function () {
         turnonVideo();
         new App();
@@ -341,4 +345,6 @@ video.addEventListener('ended', (event) => {
     document.getElementById("submit").addEventListener("click", function () {
         setPlaySpeed();
     });
+    //video.currentTime = 0;
+    //video.play();
 });

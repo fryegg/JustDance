@@ -1,0 +1,48 @@
+/* 드롭 반응 */
+.dropBox.active {
+    background: #eee;
+  }
+  /* #canV {
+    width:256px;
+    height:256px;
+  } */
+  .canvas{
+    max-width: 35%;;
+    height: auto;
+  }
+  #topui {
+    background-image:url('boys.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  #webcam {
+    display: none; 
+    max-width: 35%;;
+    height: auto;
+    background-color: #666;
+  }
+  #video{
+    display:none;
+    max-width: 35%;;
+    height: auto;
+    width: auto;
+  }
+  .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: #FF3D00;
+    border-radius: 50%;
+    display: none;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 

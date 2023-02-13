@@ -1,34 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Hello World - TensorFlow.js</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Import the webpage's stylesheet -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Scrolling Nav - Start Bootstrap Template</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/styles2.css" rel="stylesheet" />
+
 </head>
 
-<body>
-    <div class="dropBox">
-        <h1>이곳에 파일을 드롭해주세요. </h1>
-    </div>
-
-    <h1>TensorFlow.js Hello World</h1>
-    <p id="status">wting TF.js load</p>
-    <input id="file" type="file" accept="video/mp4,video/mkv, video/x-m4v,video/*">
-    <video id="video" controls></video>
-    <span><video autoplay="true" id="webcam"></video>
-        <canvas class="canvas" id="mirrored"></canvas>
-        <canvas class="canvas" id="dancedata"></canvas>
-        <canvas class="canvas" id="dancereal"></canvas></span>
-    <button id="myBtn">재생</button><br>
-    <label for="lname">재생속도</label><br>
-    <input type="text" id="speed" value="1">
-    <button id="submit">설정</button>
+<body id="page-top">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
-    <script src="test.js"></script>
+
+    <!-- Navigation-->
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#page-top"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive"> -->
+                <!-- <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                </ul> -->
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header class="text-black" id="topui">
+        <div class="container px-4 text-center">
+            <h1 class="fw-bolder">Online Just Dance</h1>
+            <p class="lead">Try your dance with k-pop dance</p>
+            <!-- <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a> -->
+            <form class="container">
+                <label class="label" id="label" for="input">
+                   <div class="inner" id="inner">드래그하거나 클릭해서 영상 업로드</div>
+                </label>
+                <input id="input" class="input" accept="video/mp4,video/mkv, video/x-m4v,video/*" type="file" required="true" multiple="true" hidden="true">
+            </form>
+        </div>
+    </header>
+    <!-- About section-->
+    <section id="about">
+        <div class="container px-4">
+            <div class="row gx-4 justify-content-center">
+                <div class="col-lg-8">
+                    <!-- <h2>About this page</h2> -->
+                    <!-- <p class="lead">This is a great place to talk about your webpage. This template is purposefully
+                        unstyled so you can use it as a boilerplate or starting point for you own landing page designs!
+                        This template features:</p> -->
+                    <ul>
+                        <span class="loader" id="loading"></span>
+                        <video id="video" controls></video>
+
+                        <span><video autoplay="true" id="webcam"></video>
+                            <canvas class="canvas" id="mirrored"></canvas>
+                            <canvas class="canvas" id="dancedata"></canvas>
+                            <canvas class="canvas" id="dancereal"></canvas></span>
+                        <!-- <button id="myBtn">재생</button><br> -->
+                        <label for="lname">재생속도</label>
+                        <input type="text" id="speed" value="1">
+                        <button id="submit">설정</button>
+                        <li>Clickable nav links that smooth scroll to page sections</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container px-4">
+            <p class="m-0 text-center text-white">Copyright &copy; Peter</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
