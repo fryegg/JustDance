@@ -53,14 +53,14 @@ function findTime() {
     var closest = timearr.reduce(function (prev, curr) {
         return (Math.abs(curr - goal) < Math.abs(prev - goal) ? curr : prev);
     });
-    var minus = timearr.reduce(function (prev, curr) {
-        return Math.abs(curr - closest);
-    },0);
-    console.log(minus);
+    let minus = timearr.map((v) => {
+        return Math.abs(v - closest); 
+      }); 
+    let second = minus.sort()[1];
     //console.log("hhhhhhhhh",closest);
     //console.log("hhhhhhhhhhh", (Math.abs(timearr - closest)));
     //console.log("hhhhhhhhhhh", (Math.abs(timearr - closest)).sort(function(a, b) { return b - a; })[1]);
-    return closest
+    return [closest, second];
 }
 
 function turnonVideo() {
@@ -305,10 +305,18 @@ class App {
         webcamRun();
         async function webcamRun() {
             var closeTime = findTime();
-            var dbkps = JSON.parse(localStorage.getItem(closeTime.toString()));
+            var dbkps = JSON.parse(localStorage.getItem(closeTime[0].toString()));
+            
             if (dbkps != null && dbkps != undefined) {
+                var dbkps2 = JSON.parse(localStorage.getItem(closeTime[1].toString()));
+                if (dbkps2 != null && dbkps2 != undefined) {
+                await translate(dbkps2.keypoints, 240, 240);
+                await drawSkeleton("dancereal", dbkps2.keypoints, [1, 1, 1, 1, 1, 1], 240, 240, false);
+                }
                 await translate(dbkps.keypoints, 240, 240);
                 await drawSkeleton("dancedata", dbkps.keypoints, [1, 1, 1, 1, 1, 1], 240, 240, false);
+                
+                
                 const poses = await detector.estimatePoses(webcam);
                 if (poses[0] != [] && poses[0] != undefined) {
                     //평행이동
@@ -364,7 +372,6 @@ var input = document.getElementById("input");
  
    input.addEventListener("change", (event) => {
       const files = changeEvent(event);
-      console.log("hhhhhhhhhhh",files);
       handleUpdate(files);
    });
  
@@ -382,20 +389,20 @@ var input = document.getElementById("input");
  
    document.addEventListener("dragenter", (event) => {
       event.preventDefault();
-      console.log("dragenter");
+
       if (event.target.className === "inner") {
          event.target.style.background = "#616161";
       }
    });
  
    document.addEventListener("dragover", (event) => {
-      console.log("dragover");
-      event.preventDefault();
+
+    event.preventDefault();
    });
  
    document.addEventListener("dragleave", (event) => {
       event.preventDefault();
-      console.log("dragleave");
+
       if (event.target.className === "inner") {
          event.target.style.background = "#3a3a3a";
       }
@@ -407,7 +414,6 @@ var input = document.getElementById("input");
       if (event.target.className === "inner") {
          const files = event.dataTransfer?.files;
          event.target.style.background = "#3a3a3a";
-         console.log("aaaaaaaaa",files);
          handleUpdate([...files]);
          const file = files[0];
         const videourl = URL.createObjectURL(file);
